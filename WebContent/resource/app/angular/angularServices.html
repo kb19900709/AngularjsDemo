@@ -1,0 +1,99 @@
+<p>
+    <span style="font-size:20px;"><strong>Singleton&nbsp;</strong></span>
+</p>
+<p>
+    <span style="font-size:20px;"><span style="font-size:16px;">Service 如果正確被載入，只會被實體化一次</span></span>
+</p>
+<p>
+    <span style="font-size:20px;"><span style="font-size:16px;">之後整個應用程式取得皆會是相同實體</span></span>
+</p>
+<p>
+    <span style="font-size:20px;"><span style="font-size:16px;">透過<strong><span style="color:#ff0000;">注入</span></strong>的方式重複行為與共享狀態</span>
+    </span>
+</p>
+<br>
+<p>
+    <span style="font-size: 20px;"><b>Controllers &amp; Service</b></span>
+</p>
+<div class="commonTable" id="commonTable">
+    <table>
+        <tr>
+            <td width="50%">Controllers</td>
+            <td width="50%">Services</td>
+        </tr>
+        <tr>
+            <td>呈現邏輯</td>
+            <td>工作邏輯</td>
+        </tr>
+        <tr>
+            <td>與views相關</td>
+            <td>與views無關</td>
+        </tr>
+        <tr>
+            <td>驅動UI</td>
+            <td>驅動app</td>
+        </tr>
+        <tr>
+            <td>一次性</td>
+            <td>重複性(透過注入)</td>
+        </tr>
+    </table>
+</div>
+<br>
+<br>
+<p><span style="font-size:20px;"><strong>注入</strong></span></p>
+<br>
+<div layout-gt-sm="row">
+    <div style="float: left;width: 400px;padding-right: 20px;">
+        <img src="resource/image/diSaveExample.PNG" width="400px" height="200px">
+        <p>
+            <span style="font-size: 16px;">一個使用陣列語法，一個沒有</span>
+        </p>
+        <p>
+            <span style="font-size: 16px;">兩種語法效果一樣</span>
+        </p>
+    </div>
+    <div style="float: left;width: 400px">
+        <p>
+            <span style="font-size: 16px;">第一種寫法</span>
+        </p>
+        <p>
+            <span style="font-size: 16px;">javaScript在經過壓縮處理之後</span>
+        </p>
+        <p>
+            <span style="font-size: 16px;">註解會被丟棄、空格會被刪除、變數會被重新命名</span>
+        </p>
+        <p>
+            <span style="font-size: 16px;">angularjs 會<strike>失智</strike>找不到對應的service</span>
+        </p>
+        <br>
+        <p>
+            <span style="font-size: 16px;">第二種寫法</span>
+        </p>
+        <p>
+            <span style="color:#ff0000;"><strong><span style="font-size: 16px;">安全式注入</span></strong>
+            </span><span style="font-size: 16px;"> angularjs 會去解析字串名稱</span>
+        </p>
+        <p>
+            <span style="font-size: 16px;">並找到對應的service(依陣列裡的順序)</span>
+        </p>
+        <p>
+            <span style="font-size: 16px;">因此推薦使用第二種寫法</span>
+        </p>
+    </div>
+</div>
+<br>
+<p>
+    <span style="font-size:20px;"><span style="color:#000000;"><strong>通訊</strong></span></span>
+</p>
+<ul>
+    <li>
+        <span style="font-size:16px;"><strong>$http :&nbsp;</strong>angularjs 負責產生請求的 service</span>
+    </li>
+    <li>
+        <span style="font-size:16px;"><strong>ngResource :&nbsp;</strong></span><span style="font-size: 16px;">angularjs 負責產生RESRful url pattern 請求的選擇性模組</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;"><strong>Promise物件 :&nbsp;</strong>javaScript 處理非同步請求的標準，依賴連結與成功錯誤處理器</span>
+    </li>
+</ul>

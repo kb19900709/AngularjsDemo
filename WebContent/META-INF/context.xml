@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+    <Resource 
+		name="jdbc/KBDemo" auth="Container" type="javax.sql.DataSource"
+		username="yourName" password="yourPassword" driverClassName="oracle.jdbc.driver.OracleDriver"
+		url="jdbc:oracle:thin:@localhost:1521:XE"
+		maxIdle="3" maxWait="10000" maxActive="20"/>
+</Context>

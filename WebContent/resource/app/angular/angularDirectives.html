@@ -1,0 +1,51 @@
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GRDqfgAEKQo" frameborder="0" allowfullscreen></iframe>
+<br><br><br>
+<p>
+    <span style="font-size:20px;"><b>Angularjs <span style="color:#ff0000;">Life Cycles</span></b>
+    </span>
+</p>
+<ol>
+    <li>
+        <span style="font-size:16px;">HTML 載入 Angularjs (或是選擇性載入其餘第三方類庫)</span>
+    </li>
+    <li>
+        <span style="font-size:16px;">載入相關 javaScript 程式碼</span>
+    </li>
+    <li>
+        <span style="font-size:16px;">Document Ready Event</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">搜尋 ng-app 確認 app 作用邊界以及附屬之所有實體</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">進入編譯 (compile)</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">搜尋HTML上所有的 Directives 並執行&nbsp;</span><span style="font-size: 16px;">Directives 定義物件所需的程式碼</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">若第六點有載入或是建立新的HTML，則遞迴進入相關HTML執行第六點</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">所有的&nbsp;</span><span style="font-size: 16px;">Directives 編譯結束，並生成 Link 函式 (如果有定義)</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">Angularjs 組合 Scope(範疇) 以及&nbsp;</span><span style="font-size: 16px;">Link 函式</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">若HTML有引用&nbsp;</span><span style="font-size: 16px;">Scope 上的變數，則顯示於 HTML上</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">Angularjs &nbsp;針對所有&nbsp;</span><span style="font-size: 16px;">Directives &nbsp;以及綁定的變數加入 監視器 (watchers)，保證 UI 與 Model 一致</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">產生有資料有互動功能的 view</span>
+    </li>
+</ol>
+<br>
+<p>
+    <span style="font-size:16px;"><strong>行為修飾 :</strong>&nbsp;ng-show、ng-hide ... etc</span>
+</p>
+<p>
+    <strong><span style="font-size: 16px;">重用元件 :&nbsp;</span></strong><span style="font-size: 16px;">樣板、描繪邏輯、工作邏輯</span>
+</p>

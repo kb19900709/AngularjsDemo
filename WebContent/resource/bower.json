@@ -1,0 +1,24 @@
+{
+  "name": "AngularjsDemo",
+  "authors": [
+    "KB <o922431962@yahoo.com.tw>"
+  ],
+  "description": "practice angular",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.2",
+    "angular-material": "^1.0.6",
+    "angular-route": "^1.5.2",
+    "angular-resource": "^1.5.2"
+  }
+}

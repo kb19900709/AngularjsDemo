@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myBatis.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.myBatis.model.User" >
+    <id column="SEQ_NO" property="seqNo" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="USER_EMAIL" property="userEmail" jdbcType="VARCHAR" />
+    <result column="USER_SIGN_UP_DATE" property="userSignUpDate" jdbcType="TIMESTAMP" />
+    <result column="USER_PHONE" property="userPhone" jdbcType="VARCHAR" />
+    <result column="USER_GENDER" property="userGender" jdbcType="VARCHAR" />
+    <result column="USER_SPORTS" property="userSports" jdbcType="VARCHAR" />
+    <result column="USER_COUNTRY" property="userCountry" jdbcType="VARCHAR" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="MODIFIER" property="modifier" jdbcType="VARCHAR" />
+    <result column="MODIFY_DATE" property="modifyDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from USER_DEMO
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myBatis.model.User" >
+    <selectKey resultType="java.lang.String" keyProperty="seqNo" order="BEFORE" >
+      SELECT TO_CHAR(USER_SEQ.NEXTVAL) AS SEQ_NO FROM DUAL
+    </selectKey>
+    insert into USER_DEMO (SEQ_NO, USER_NAME, USER_EMAIL, 
+      USER_SIGN_UP_DATE, USER_PHONE, USER_GENDER, 
+      USER_SPORTS, USER_COUNTRY, CREATOR, 
+      CREATE_DATE, MODIFIER, MODIFY_DATE
+      )
+    values (#{seqNo,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, 
+      #{userSignUpDate,jdbcType=TIMESTAMP}, #{userPhone,jdbcType=VARCHAR}, #{userGender,jdbcType=VARCHAR}, 
+      #{userSports,jdbcType=VARCHAR}, #{userCountry,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifyDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.myBatis.model.User" >
+    update USER_DEMO
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+      USER_SIGN_UP_DATE = #{userSignUpDate,jdbcType=TIMESTAMP},
+      USER_PHONE = #{userPhone,jdbcType=VARCHAR},
+      USER_GENDER = #{userGender,jdbcType=VARCHAR},
+      USER_SPORTS = #{userSports,jdbcType=VARCHAR},
+      USER_COUNTRY = #{userCountry,jdbcType=VARCHAR},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      MODIFIER = #{modifier,jdbcType=VARCHAR},
+      MODIFY_DATE = #{modifyDate,jdbcType=TIMESTAMP}
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select SEQ_NO, USER_NAME, USER_EMAIL, USER_SIGN_UP_DATE, USER_PHONE, USER_GENDER, 
+    USER_SPORTS, USER_COUNTRY, CREATOR, CREATE_DATE, MODIFIER, MODIFY_DATE
+    from USER_DEMO
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select SEQ_NO, USER_NAME, USER_EMAIL, USER_SIGN_UP_DATE, USER_PHONE, USER_GENDER, 
+    USER_SPORTS, USER_COUNTRY, CREATOR, CREATE_DATE, MODIFIER, MODIFY_DATE
+    from USER_DEMO
+  </select>
+  <select id="selectAllByParam" resultMap="BaseResultMap" parameterType="com.myBatis.model.User">
+    select SEQ_NO, USER_NAME, USER_EMAIL, USER_SIGN_UP_DATE, USER_PHONE, USER_GENDER, 
+    USER_SPORTS, USER_COUNTRY, CREATOR, CREATE_DATE, MODIFIER, MODIFY_DATE
+    from USER_DEMO
+    where 1=1
+    <if test="userName != null and userName != ''">
+		<![CDATA[ AND USER_NAME like '%' || '${userName}' || '%' ]]>
+	</if>
+	<if test="userEmail != null and userEmail != ''">
+		<![CDATA[ AND USER_EMAIL like '%' || '${userEmail}' || '%' ]]>
+	</if>
+	<if test="userSignUpDate != null">
+		AND USER_SIGN_UP_DATE = #{userSignUpDate}
+	</if>
+  </select>
+  <select id="selectAllByParamForValid" resultMap="BaseResultMap" parameterType="com.myBatis.model.User">
+  	select SEQ_NO, USER_NAME, USER_EMAIL, USER_SIGN_UP_DATE, USER_PHONE, USER_GENDER, 
+    USER_SPORTS, USER_COUNTRY, CREATOR, CREATE_DATE, MODIFIER, MODIFY_DATE
+    from USER_DEMO
+    where 1=1
+    <if test="seqNo != null and seqNo != ''">
+		AND SEQ_NO != #{seqNo} 
+	</if>
+    <if test="userName != null and userName != ''">
+		AND USER_NAME = #{userName} 
+	</if>
+	<if test="userEmail != null and userEmail != ''">
+		AND USER_EMAIL = #{userEmail} 
+	</if>
+	<if test="userPhone != null and userPhone != ''">
+		AND USER_PHONE = #{userPhone} 
+	</if>
+  </select>
+</mapper>

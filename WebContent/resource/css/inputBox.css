@@ -1,0 +1,15 @@
+span.standard {
+    padding: 8px;
+    padding-left: 15px;
+}
+
+fieldset.standard {
+    border-style: solid;
+    border-width: 1px;
+    height: 100%;
+    padding-top: 15px;
+}
+
+legend {
+    color: #3F51B5;
+}

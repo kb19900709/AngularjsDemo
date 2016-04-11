@@ -1,0 +1,69 @@
+<md-dialog ng-cloak>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>User Info</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">X</md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+    	<div style="padding: 10px;">
+    		<div ng-show="user.userName">
+    			<p>
+					<span style="font-size:16px;">
+						<strong>Name : </strong>
+						{{user.userName}}
+					</span>
+				</p>
+    		</div>
+    		<div ng-show="user.userEmail">
+    			<p>
+					<span style="font-size:16px;">
+						<strong>Email : </strong>
+						{{user.userEmail}}
+					</span>
+				</p>
+    		</div>
+    		<div ng-show="user.userSignUpDate">
+    			<p>
+					<span style="font-size:16px;">
+						<strong>Sign Up Date : </strong>
+						{{user.userSignUpDate | date:'yyyy/MM/dd'}}
+					</span>
+				</p>
+    		</div>
+    		<div ng-show="user.userPhone">
+    			<p>
+					<span style="font-size:16px;">
+						<strong>Phone : </strong>
+						{{user.userPhone}}
+					</span>
+				</p>
+    		</div>
+    		<div ng-show="user.userGender">
+    			<p>
+					<span style="font-size:16px;">
+						<strong>Gender : </strong>
+						{{user.userGender | gender}}
+					</span>
+				</p>
+    		</div>
+    		<div ng-show="user.userSports">
+    			<p>
+					<span style="font-size:16px;">
+						<strong>Sports : </strong>
+						{{user.userSports | sport}}
+					</span>
+				</p>
+    		</div>
+    		<div ng-show="user.userCountry">
+    			<p>
+					<span style="font-size:16px;">
+						<strong>Country : </strong>
+						{{user.userCountry | country}}
+					</span>
+				</p>
+    		</div>
+		</div>
+    </md-dialog-content>
+</md-dialog>

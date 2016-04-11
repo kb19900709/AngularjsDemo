@@ -1,0 +1,52 @@
+<div ng-controller="UserQueryCtrl as ctrl">
+    <div layout-gt-sm="row">
+        <h3 flex="80">User List</h3>
+    </div>
+	<form ng-submit="ctrl.searchUser()">
+		<div layout-gt-sm="row">
+			<md-input-container class="md-block" flex-gt-sm>
+				<form-element label="Name" type="input" name="userName" bind-to="ctrl.queryParams.userName"></form-element>
+			</md-input-container>
+			<div flex="5" hide-xs hide-sm></div>
+			<md-input-container class="md-block" flex-gt-sm>
+				<form-element label="Email" type="input" name="userEmail" bind-to="ctrl.queryParams.userEmail"></form-element>
+			</md-input-container>
+			<div flex="5" hide-xs hide-sm></div>
+			<div flex-gt-sm>
+				<form-element type="date" label="Sign Up Date" name="userSignUpDate" bind-to="ctrl.queryParams.userSignUpDate"></form-element>
+			</div>
+		</div>
+		<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+			<md-button class="md-raised" type="button" ng-click="ctrl.addUser()">Add</md-button>
+			<md-button class="md-raised" type="button" ng-click="ctrl.clearParams()">Clear</md-button>
+			<md-button class="md-raised" type="submit">Search</md-button>
+		</section>
+	</form>
+	<br><br><br>
+    <div class="commonTable" id="commonTable" flex-gt-sm> 
+        <table>
+            <tr>
+                <td>Gender</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Sign Up Date</td>
+                <td width="30%">Process</td>
+            </tr>
+            <tr ng-hide="ctrl.users">
+                <td colspan="5" style="text-align: center;">no data found</td>
+            </tr>
+            <tr ng-repeat="user in ctrl.users track by user.seqNo" ng-dblclick="ctrl.getUserInfo(user,$event)">
+                <td><span ng-bind="user.userGender | gender"></span></td>
+                <td><span ng-bind="user.userName"></td>
+                <td><span ng-bind="user.userEmail"></td>
+                <td><span ng-bind="user.userSignUpDate | date:'yyyy/MM/dd'"></td>
+                <td>
+                    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                        <md-button class="md-raised md-primary" type="button" ng-click="ctrl.editUser(user)">Edit</md-button>
+                        <md-button class="md-raised md-warn" type="button" ng-click="ctrl.deleteUser(user,$event)">Delete</md-button>
+                    </section>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

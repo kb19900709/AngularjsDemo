@@ -1,0 +1,97 @@
+<p>
+    <span style="font-size: 20px;"><b>傳統網站</b></span>
+</p>
+<br>
+<p>
+    <span style="font-size: 16px;">如果一個 page (html、JSP ... etc)，涵蓋了<span style="color:#ff0000;"><strong>大量</strong></span>的 javaScript &amp; jQuery 控制</span>
+</p>
+<p>
+    <span style="font-size: 16px;">以及該頁面必須依賴資料狀態被重複使用多次</span>
+</p>
+<p>
+    <span style="font-size:16px;">會發生什麼事情呢 ?</span>
+</p>
+<div layout-gt-sm="row" style="height: 200px;">
+    <div style="float: left;width: 400px;padding-right: 20px;">
+        <ul>
+            <li>
+                <span style="font-size:16px;">維護成本提高</span>
+            </li>
+            <li>
+                <span style="font-size:16px;">擴充成本提高</span>
+            </li>
+            <li>
+                <span style="font-size: 16px;">可讀性降低</span>
+            </li>
+            <li>
+                <span style="font-size:16px;">Ajax &amp; CallBack Hell</span>
+            </li>
+        </ul>
+    </div>
+    <div style="float: top;width: 400px;">
+        <img src="resource/image/jquery-javascript.png" width="400px" height="200px">
+    </div>
+</div>
+<p>
+    <span style="font-size: 16px;">傳統網站網頁控制大部分針對 DOM (Document Object Model) 的操作</span>
+</p>
+<p>
+    <span style="font-size: 16px;">使用 javaScript &amp; jQuery 的解決方案可以解決大部分的問題</span>
+</p>
+<p>
+    <span style="font-size: 16px;">但極有可能在專案日趨龐大時遇到上述4點需要克服</span>
+</p>
+<br><br><br>
+<p>
+    <span style="font-size:20px;"><strong>SPA</strong></span></p>
+<p>
+    &nbsp;</p>
+<p>
+    <span style="font-size:20px;"><span style="font-size:16px;">Single Page Application 以下簡稱SPA</span></span>
+</p>
+<ul>
+    <li>
+        <span style="font-size: 16px;">傳統WEB : Multi - Page</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">SPA : Single - Page&nbsp;</span>
+    </li>
+</ul>
+<p>
+    &nbsp;
+</p>
+<p>
+    <span style="font-size: 16px;">優點</span>
+</p>
+<ul>
+    <li>
+        <span style="font-size: 16px;">類 Desktop Application ，使用者體驗較佳</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">使用過的資源無須重新載入，資源快取由瀏覽器處理</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">前後端關注點分離。前端即是應用程式，後端負責計算資料，移植性強</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">Server 無須再負責渲染HTML。僅需提供資料輸出入，</span><span style="font-size: 16px;">減輕負載效能獲得提升</span>
+    </li>
+</ul>
+<p>
+    <span style="font-size: 16px;">缺點</span>
+</p>
+<ul>
+    <li>
+        <span style="font-size: 16px;">不利於 SEO &nbsp;</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">瀏覽器歷史紀錄需實作</span>
+    </li>
+    <li>
+        <span style="font-size: 16px;">第一次載入應用程式耗時較久</span>
+    </li>
+</ul>
+<br>
+<div>
+    <img src="resource/image/SPA.PNG" width="700px" height="300px">
+</div>

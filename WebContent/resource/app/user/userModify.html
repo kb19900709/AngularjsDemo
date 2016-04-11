@@ -1,0 +1,92 @@
+<div ng-controller="UserModifyCtrl as ctrl">
+    <form name="userForm" ng-submit="ctrl.editUser()">
+        <div layout-gt-sm="row">
+            <h3 flex="80">User Information</h3>
+            <md-switch flex="20" ng-model="ctrl.showMessage">{{ctrl.showMessage?'Showing hint':'Showing error'}}</md-switch>
+        </div>
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <!-- 
+            		note:
+	            		form-element attributes
+		            		label:欄位名稱
+		            		type:欄位型態
+		            		name:form表單欄位辨識
+		            		bind-to:綁定物件 
+							error-msg:是否顯示錯誤訊息
+
+						hint-wording attributes
+							is-show:是否顯示提示訊息
+							content:提示訊息
+						
+						message-mapping attributes
+							dependency:欄位驗證依賴屬性
+							content:欄位驗證依賴訊息
+            	-->
+                <form-element label="Name" type="input" name="userName" bind-to="ctrl.user.userName" error-msg="!ctrl.showMessage">
+                    <hint-wording is-show="ctrl.showMessage">What's your name?</hint-wording>
+                    <message-mapping dependency="required">Name is required.</message-mapping>
+                    <message-mapping dependency="md-maxlength='20'">Out of limit range : 20 </message-mapping>
+                    <message-mapping dependency="unique-valid"></message-mapping>
+                </form-element>
+            </md-input-container>
+            <div flex="5" hide-xs hide-sm></div>
+            <md-input-container class="md-block" flex-gt-sm>
+                <form-element label="Email" type="input" name="userEmail" bind-to="ctrl.user.userEmail" error-msg="!ctrl.showMessage">
+                    <hint-wording is-show="ctrl.showMessage">How to find you?</hint-wording>
+                    <message-mapping dependency="required">Email is required.</message-mapping>
+                    <message-mapping dependency="unique-valid"></message-mapping>
+                </form-element>
+            </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+            <div flex-gt-sm>
+                <form-element type="date" label="Sign Up Date" name="userSignUpDate" bind-to="ctrl.user.userSignUpDate" error-msg="!ctrl.showMessage">
+                    <message-mapping dependency="required">Sign up date is required.</message-mapping>
+                </form-element>
+            </div>
+            <div flex="5" hide-xs hide-sm></div>
+            <md-input-container class="md-block" flex-gt-sm>
+                <form-element label="Phone Number" type="input" name="userPhone" bind-to="ctrl.user.userPhone" error-msg="!ctrl.showMessage">
+                    <hint-wording is-show="ctrl.showMessage">How to call you?</hint-wording>
+                    <message-mapping dependency="ng-pattern='/^([0-9]{4})-[0-9]{3}-[0-9]{3}$/'">
+                        Phone rule : #### - ### - ###
+                    </message-mapping>
+                    <message-mapping dependency="unique-valid"></message-mapping>
+                </form-element>
+            </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+            <div flex-gt-sm>
+                <fieldset class="standard">
+                    <legend>Gender</legend>
+                    <!-- note: bind-to:綁定物件，list:資料來源 -->
+                    <form-element type="radio" bind-to="ctrl.user.userGender" list="ctrl.gender" />
+                </fieldset>
+            </div>
+            <div flex="5" hide-xs hide-sm></div>
+            <div flex-gt-sm>
+                <fieldset class="standard">
+                    <legend>Sports</legend>
+                    <!-- note: bind-to:資料來源 -->
+                    <form-element type="checkbox" bind-to="ctrl.sports" />
+                </fieldset>
+            </div>
+        </div>
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <form-element label="Enter your country" type="select" name="userCountry" 
+				    list="ctrl.country" bind-to="ctrl.user.userCountry" error-msg="!ctrl.showMessage">
+                    <hint-wording is-show="ctrl.showMessage">Where do you live?</hint-wording>
+				    <!-- <message-mapping dependency="required">Please enter country</message-mapping> -->
+				</form-element>
+            </md-input-container>
+            <div flex="5" hide-xs hide-sm></div>
+            <div flex-gt-sm></div>
+        </div>
+        <md-button class="md-raised" type="button" ng-click="ctrl.back()">Back</md-button>
+        <md-button class="md-raised" type="button" ng-click="ctrl.clearUser()" ng-disabled="ctrl.user.seqNo">Clear</md-button>
+        <md-button class="md-raised" type="submit" ng-disabled="userForm.$invalid">Submit</md-button>
+    </form>
+    <!-- User check : {{ ctrl.user | json }} -->
+</div>

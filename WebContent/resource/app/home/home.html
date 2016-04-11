@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="kbApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Angularjs Demo</title>
+    <link rel="stylesheet" href="resource/lib/inUsing/angular-material.min.css">
+    <link rel="stylesheet" href="resource/css/home.css">
+    <link rel="stylesheet" href="resource/css/inputMessage.css">
+    <link rel="stylesheet" href="resource/css/inputBox.css">
+    <link rel="stylesheet" href="resource/css/table.css">
+</head>
+
+<body ng-controller="HomeCtrl as ctrl">
+
+  <!-- Container #1 (see wireframe) -->
+  <md-toolbar layout="row" ng-cloak>
+    <img src="resource/image/angularMaterial.PNG" ng-click="ctrl.goHome()" style="cursor: pointer;">
+    <span flex></span>
+    <h1>Angularjs</h1>
+    <span flex></span>
+    <md-button class="md-raised" ng-click="ctrl.learnMore()">Learn More</md-button>
+  </md-toolbar>
+
+  <!-- Container #2 -->
+  <div flex layout="row" class="container" ng-cloak>
+
+      <!-- Container #3 -->
+      <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2" ng-cloak>
+        <md-list>
+
+          <!-- List item #1 -->
+          <md-list-item ng-repeat="menu in ctrl.menuList" class="noright" ng-cloak>
+              <md-button class="inMenu" ng-click="ctrl.menuChange(menu.functionPath)">
+                <md-icon md-svg-src="{{menu.menuIconPath}}"></md-icon>
+                {{menu.menuName}}
+              </md-button>
+          </md-list-item>
+
+        </md-list>
+      </md-sidenav>
+
+      <!-- Container #4 -->
+      <md-content flex id="content" ng-cloak>
+        <div ng-view></div>
+      </md-content>
+
+  </div>
+	
+  <!-- include lib -->
+	<script type="text/javascript" src="resource/lib/inUsing/angular.min.js"></script>
+  <script type="text/javascript" src="resource/lib/inUsing/angular-animate.min.js"></script>
+  <script type="text/javascript" src="resource/lib/inUsing/angular-aria.min.js"></script>
+  <script type="text/javascript" src="resource/lib/inUsing/angular-material.min.js"></script>
+  <script type="text/javascript" src="resource/lib/inUsing/angular-messages.min.js"></script>
+  <script type="text/javascript" src="resource/lib/inUsing/angular-resource.min.js"></script>
+  <script type="text/javascript" src="resource/lib/inUsing/angular-route.min.js"></script>
+  <!-- app config -->
+  <script type="text/javascript" src="resource/app/app.js"></script>
+  <!-- directive -->
+  <script type="text/javascript" src="resource/app/directive/formElement.js"></script>
+  <script type="text/javascript" src="resource/app/directive/uniqueValid.js"></script>
+  <!-- service -->
+  <script type="text/javascript" src="resource/app/common/httpRequestInterceptor.js"></script>
+  <script type="text/javascript" src="resource/app/common/pageService.js"></script>
+  <script type="text/javascript" src="resource/app/common/dialogService.js"></script>
+  <script type="text/javascript" src="resource/app/home/homeService.js"></script>
+  <script type="text/javascript" src="resource/app/user/service/userService.js"></script>
+  <!-- home -->
+  <script type="text/javascript" src="resource/app/home/homeController.js"></script>
+  <!-- angular introduction-->
+  <script type="text/javascript" src="resource/app/angular/aiController.js"></script>
+  <!-- user -->
+  <script type="text/javascript" src="resource/app/user/controller/userQueryController.js"></script>
+  <script type="text/javascript" src="resource/app/user/controller/userModifyController.js"></script>
+   <!-- user filter -->
+  <script type="text/javascript" src="resource/app/user/filter/genderFilter.js"></script>
+  <script type="text/javascript" src="resource/app/user/filter/countryFilter.js"></script>
+  <script type="text/javascript" src="resource/app/user/filter/sportFilter.js"></script>
+</body>
+
+</html>

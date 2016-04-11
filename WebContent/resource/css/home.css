@@ -1,0 +1,14 @@
+.inMenu {
+    width: 100%;
+    text-align: left;
+}
+
+#content {
+	padding-top: 15px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+.container {
+    height: 100%;
+}
