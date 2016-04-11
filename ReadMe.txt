@@ -1,16 +1,21 @@
 環境需求 :
+
   jdk7
   Tomcat v7.0
   Oracle Database 11g Express Edition Release 11.2.0.2.0
   Eclipse
 	
+	
 使用技術 :
+
   Spring
   Spring MVC
   RESTful url pattern
   MyBatis
   Angularjs
   Angular Material
+  
+  
 =============================================================================
 專案建置 : 
 
